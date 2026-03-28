@@ -5,12 +5,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    dir('src/') {
-
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                        withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                         sh "docker build -t kartheek0976/adservice:latest ."
-                    }
-                        }
+                    }     
                 }
             }
         }
